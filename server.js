@@ -1,7 +1,11 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
+
+
+    
     res.setHeader('Content-Type', 'text/html');
     
     var path = './pages/';
