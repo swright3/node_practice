@@ -4,7 +4,21 @@ const fs = require('fs');
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
     
-    fs.readFile('./index.html', (err, data) => {
+    var path = './pages/';
+
+    switch (req.url) {
+        case '/':
+            path += 'index.html';
+            break;
+        case '/about':
+            path += 'about.html';
+            break;
+        default:
+            path += '404.html';
+            break;
+    }
+
+    fs.readFile(path, (err, data) => {
         err ? console.log(err) : res.end(data);
     })
 })
