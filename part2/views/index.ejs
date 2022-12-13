@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sam's Site | <%= title %></title>
 </head>
 <body>
     <h1>hi</h1>
@@ -14,6 +14,13 @@
         <li><a href='/create'>New Blog</a></li>
     </ul>
 
-    <p class="index content">This is the index</p>
+    <% if (blogs.length > 0) { %>
+        <% for( let index = 0; index < blogs.length; index++ ) { %>
+            <h3><%= blogs[index].title %> </h3>
+            <p><%= blogs[index].snippet %> </p>
+        <% } %>
+    <% } else { %>
+        <h3>There are no blogs to display</h3>
+    <% } %> 
 </body>
 </html>
