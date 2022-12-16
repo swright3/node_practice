@@ -5,11 +5,12 @@ const morgan = require('morgan');
 const app = express();
 
 // listen for requests
-app.listen(3001);
+app.listen(3000);
 
 // register view engine
 app.set('view engine', 'ejs');
 
+// middleware & static files
 app.use(express.static('public'));
 
 app.use(morgan('dev'));
